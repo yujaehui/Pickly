@@ -13,5 +13,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = ColorStyle.background
         self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ColorStyle.text]
+        self.navigationController?.navigationBar.tintColor = ColorStyle.text
     }
 }
