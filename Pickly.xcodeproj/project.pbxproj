@@ -21,6 +21,10 @@
 		095AFAB72D59E2710078FD15 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAB62D59E2710078FD15 /* ImageStyle.swift */; };
 		095AFAB92D59E3040078FD15 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAB82D59E3040078FD15 /* ColorStyle.swift */; };
 		095AFABC2D59E3450078FD15 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */; };
+		095AFABF2D59E5580078FD15 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095AFABE2D59E5580078FD15 /* Onboarding.storyboard */; };
+		095AFAC12D59E5600078FD15 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAC02D59E5600078FD15 /* OnboardingViewController.swift */; };
+		095AFAC32D59E6130078FD15 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAC22D59E6130078FD15 /* UIButton+Extension.swift */; };
+		095AFAC52D59E6C80078FD15 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAC42D59E6C80078FD15 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		095AFAB62D59E2710078FD15 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
 		095AFAB82D59E3040078FD15 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
 		095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		095AFABE2D59E5580078FD15 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		095AFAC02D59E5600078FD15 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		095AFAC22D59E6130078FD15 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		095AFAC42D59E6C80078FD15 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,8 @@
 		095AFA8E2D59DD500078FD15 /* Pickly */ = {
 			isa = PBXGroup;
 			children = (
+				095AFAC62D59E6CB0078FD15 /* Base */,
+				095AFABD2D59E4EE0078FD15 /* Onboarding */,
 				095AFABA2D59E31C0078FD15 /* Extension */,
 				095AFAB32D59E2310078FD15 /* DesignSystem */,
 				095AFAA52D59DF510078FD15 /* Network */,
@@ -109,8 +119,26 @@
 			isa = PBXGroup;
 			children = (
 				095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */,
+				095AFAC22D59E6130078FD15 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		095AFABD2D59E4EE0078FD15 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				095AFABE2D59E5580078FD15 /* Onboarding.storyboard */,
+				095AFAC02D59E5600078FD15 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		095AFAC62D59E6CB0078FD15 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				095AFAC42D59E6C80078FD15 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				095AFAA42D59DF2F0078FD15 /* .gitignore in Resources */,
+				095AFABF2D59E5580078FD15 /* Onboarding.storyboard in Resources */,
 				095AFA9C2D59DD520078FD15 /* LaunchScreen.storyboard in Resources */,
 				095AFA992D59DD520078FD15 /* Assets.xcassets in Resources */,
 				095AFA972D59DD500078FD15 /* Main.storyboard in Resources */,
@@ -195,11 +224,14 @@
 			files = (
 				095AFA942D59DD500078FD15 /* ViewController.swift in Sources */,
 				095AFA902D59DD500078FD15 /* AppDelegate.swift in Sources */,
+				095AFAC52D59E6C80078FD15 /* BaseViewController.swift in Sources */,
 				095AFAA72D59DF580078FD15 /* APIKey.swift in Sources */,
+				095AFAC32D59E6130078FD15 /* UIButton+Extension.swift in Sources */,
 				095AFAB72D59E2710078FD15 /* ImageStyle.swift in Sources */,
 				095AFAB92D59E3040078FD15 /* ColorStyle.swift in Sources */,
 				095AFA922D59DD500078FD15 /* SceneDelegate.swift in Sources */,
 				095AFAB52D59E23F0078FD15 /* FontStyle.swift in Sources */,
+				095AFAC12D59E5600078FD15 /* OnboardingViewController.swift in Sources */,
 				095AFABC2D59E3450078FD15 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
