@@ -17,6 +17,10 @@
 		095AFAA72D59DF580078FD15 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAA62D59DF580078FD15 /* APIKey.swift */; };
 		095AFAAA2D59E07D0078FD15 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 095AFAA92D59E07D0078FD15 /* Alamofire */; };
 		095AFAAD2D59E0860078FD15 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 095AFAAC2D59E0860078FD15 /* Kingfisher */; };
+		095AFAB52D59E23F0078FD15 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAB42D59E23F0078FD15 /* FontStyle.swift */; };
+		095AFAB72D59E2710078FD15 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAB62D59E2710078FD15 /* ImageStyle.swift */; };
+		095AFAB92D59E3040078FD15 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAB82D59E3040078FD15 /* ColorStyle.swift */; };
+		095AFABC2D59E3450078FD15 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		095AFA9D2D59DD520078FD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		095AFAA32D59DF2F0078FD15 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		095AFAA62D59DF580078FD15 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		095AFAB42D59E23F0078FD15 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		095AFAB62D59E2710078FD15 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
+		095AFAB82D59E3040078FD15 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
+		095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +56,6 @@
 		095AFA832D59DD500078FD15 = {
 			isa = PBXGroup;
 			children = (
-				095AFAA52D59DF510078FD15 /* Network */,
 				095AFAA32D59DF2F0078FD15 /* .gitignore */,
 				095AFA8E2D59DD500078FD15 /* Pickly */,
 				095AFA8D2D59DD500078FD15 /* Products */,
@@ -66,12 +73,15 @@
 		095AFA8E2D59DD500078FD15 /* Pickly */ = {
 			isa = PBXGroup;
 			children = (
+				095AFABA2D59E31C0078FD15 /* Extension */,
+				095AFAB32D59E2310078FD15 /* DesignSystem */,
+				095AFAA52D59DF510078FD15 /* Network */,
 				095AFA8F2D59DD500078FD15 /* AppDelegate.swift */,
 				095AFA912D59DD500078FD15 /* SceneDelegate.swift */,
 				095AFA932D59DD500078FD15 /* ViewController.swift */,
 				095AFA952D59DD500078FD15 /* Main.storyboard */,
-				095AFA982D59DD520078FD15 /* Assets.xcassets */,
 				095AFA9A2D59DD520078FD15 /* LaunchScreen.storyboard */,
+				095AFA982D59DD520078FD15 /* Assets.xcassets */,
 				095AFA9D2D59DD520078FD15 /* Info.plist */,
 			);
 			path = Pickly;
@@ -83,6 +93,24 @@
 				095AFAA62D59DF580078FD15 /* APIKey.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		095AFAB32D59E2310078FD15 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				095AFAB82D59E3040078FD15 /* ColorStyle.swift */,
+				095AFAB42D59E23F0078FD15 /* FontStyle.swift */,
+				095AFAB62D59E2710078FD15 /* ImageStyle.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		095AFABA2D59E31C0078FD15 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				095AFABB2D59E3450078FD15 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +196,11 @@
 				095AFA942D59DD500078FD15 /* ViewController.swift in Sources */,
 				095AFA902D59DD500078FD15 /* AppDelegate.swift in Sources */,
 				095AFAA72D59DF580078FD15 /* APIKey.swift in Sources */,
+				095AFAB72D59E2710078FD15 /* ImageStyle.swift in Sources */,
+				095AFAB92D59E3040078FD15 /* ColorStyle.swift in Sources */,
 				095AFA922D59DD500078FD15 /* SceneDelegate.swift in Sources */,
+				095AFAB52D59E23F0078FD15 /* FontStyle.swift in Sources */,
+				095AFABC2D59E3450078FD15 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
