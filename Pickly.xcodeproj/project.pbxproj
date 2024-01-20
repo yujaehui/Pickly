@@ -35,6 +35,14 @@
 		095AFADC2D59EE200078FD15 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFADB2D59EE200078FD15 /* UIView+Extension.swift */; };
 		095AFADE2D59EF4A0078FD15 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFADD2D59EF4A0078FD15 /* UIScrollView+Extension.swift */; };
 		095AFAE02D59EF950078FD15 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFADF2D59EF950078FD15 /* UIImageView+Extension.swift */; };
+		095AFAE32D59FC600078FD15 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095AFAE22D59FC600078FD15 /* Setting.storyboard */; };
+		095AFAE52D59FC650078FD15 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAE42D59FC650078FD15 /* SettingViewController.swift */; };
+		095AFAE72D59FC6B0078FD15 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAE62D59FC6B0078FD15 /* ProfileTableViewCell.swift */; };
+		095AFAE92D59FC730078FD15 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095AFAE82D59FC730078FD15 /* ProfileTableViewCell.xib */; };
+		095AFAEB2D59FC790078FD15 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095AFAEA2D59FC790078FD15 /* SettingTableViewCell.xib */; };
+		095AFAED2D59FC7E0078FD15 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAEC2D59FC7E0078FD15 /* SettingTableViewCell.swift */; };
+		095AFAEF2D59FD960078FD15 /* TextProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAEE2D59FD960078FD15 /* TextProcessingManager.swift */; };
+		095AFAF12D59FF100078FD15 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFAF02D59FF100078FD15 /* UIApplication+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +74,14 @@
 		095AFADB2D59EE200078FD15 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		095AFADD2D59EF4A0078FD15 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		095AFADF2D59EF950078FD15 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		095AFAE22D59FC600078FD15 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		095AFAE42D59FC650078FD15 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		095AFAE62D59FC6B0078FD15 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		095AFAE82D59FC730078FD15 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		095AFAEA2D59FC790078FD15 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		095AFAEC2D59FC7E0078FD15 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		095AFAEE2D59FD960078FD15 /* TextProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessingManager.swift; sourceTree = "<group>"; };
+		095AFAF02D59FF100078FD15 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,7 @@
 		095AFA8E2D59DD500078FD15 /* Pickly */ = {
 			isa = PBXGroup;
 			children = (
+				095AFAE12D59FC550078FD15 /* Setting */,
 				095AFAD82D59EA7E0078FD15 /* Manager */,
 				095AFAC62D59E6CB0078FD15 /* Base */,
 				095AFABD2D59E4EE0078FD15 /* Onboarding */,
@@ -146,6 +163,7 @@
 				095AFADB2D59EE200078FD15 /* UIView+Extension.swift */,
 				095AFAD62D59E9D00078FD15 /* UIViewController+Extension.swift */,
 				095AFADD2D59EF4A0078FD15 /* UIScrollView+Extension.swift */,
+				095AFAF02D59FF100078FD15 /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -183,8 +201,22 @@
 			isa = PBXGroup;
 			children = (
 				095AFAD92D59EA8E0078FD15 /* UserDefaultsManager.swift */,
+				095AFAEE2D59FD960078FD15 /* TextProcessingManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		095AFAE12D59FC550078FD15 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				095AFAE22D59FC600078FD15 /* Setting.storyboard */,
+				095AFAE42D59FC650078FD15 /* SettingViewController.swift */,
+				095AFAE82D59FC730078FD15 /* ProfileTableViewCell.xib */,
+				095AFAE62D59FC6B0078FD15 /* ProfileTableViewCell.swift */,
+				095AFAEA2D59FC790078FD15 /* SettingTableViewCell.xib */,
+				095AFAEC2D59FC7E0078FD15 /* SettingTableViewCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +290,11 @@
 				095AFAA42D59DF2F0078FD15 /* .gitignore in Resources */,
 				095AFABF2D59E5580078FD15 /* Onboarding.storyboard in Resources */,
 				095AFA9C2D59DD520078FD15 /* LaunchScreen.storyboard in Resources */,
+				095AFAE92D59FC730078FD15 /* ProfileTableViewCell.xib in Resources */,
 				095AFA992D59DD520078FD15 /* Assets.xcassets in Resources */,
 				095AFA972D59DD500078FD15 /* Main.storyboard in Resources */,
+				095AFAEB2D59FC790078FD15 /* SettingTableViewCell.xib in Resources */,
+				095AFAE32D59FC600078FD15 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095AFAED2D59FC7E0078FD15 /* SettingTableViewCell.swift in Sources */,
+				095AFAEF2D59FD960078FD15 /* TextProcessingManager.swift in Sources */,
 				095AFAD72D59E9D00078FD15 /* UIViewController+Extension.swift in Sources */,
 				095AFAD52D59E9600078FD15 /* UITextField+Extension.swift in Sources */,
 				095AFADA2D59EA8E0078FD15 /* UserDefaultsManager.swift in Sources */,
@@ -278,6 +315,7 @@
 				095AFAC52D59E6C80078FD15 /* BaseViewController.swift in Sources */,
 				095AFACD2D59E8920078FD15 /* ProfileImageViewController.swift in Sources */,
 				095AFAA72D59DF580078FD15 /* APIKey.swift in Sources */,
+				095AFAF12D59FF100078FD15 /* UIApplication+Extension.swift in Sources */,
 				095AFAC32D59E6130078FD15 /* UIButton+Extension.swift in Sources */,
 				095AFACF2D59E8970078FD15 /* ProfileImageCollectionViewCell.swift in Sources */,
 				095AFAE02D59EF950078FD15 /* UIImageView+Extension.swift in Sources */,
@@ -285,6 +323,8 @@
 				095AFADC2D59EE200078FD15 /* UIView+Extension.swift in Sources */,
 				095AFAB92D59E3040078FD15 /* ColorStyle.swift in Sources */,
 				095AFADE2D59EF4A0078FD15 /* UIScrollView+Extension.swift in Sources */,
+				095AFAE72D59FC6B0078FD15 /* ProfileTableViewCell.swift in Sources */,
+				095AFAE52D59FC650078FD15 /* SettingViewController.swift in Sources */,
 				095AFA922D59DD500078FD15 /* SceneDelegate.swift in Sources */,
 				095AFAB52D59E23F0078FD15 /* FontStyle.swift in Sources */,
 				095AFAC12D59E5600078FD15 /* OnboardingViewController.swift in Sources */,

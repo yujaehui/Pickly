@@ -36,4 +36,11 @@ class UserDefaultsManager {
         get { ud.array(forKey: UDKey.productID.rawValue) as? [String] }
         set { ud.setValue(newValue, forKey: UDKey.productID.rawValue) }
     }
+    
+    // 모든 userDefaults 항목 제거
+    func clearAll() {
+        for key in ud.dictionaryRepresentation().keys {
+            ud.removeObject(forKey: key.description)
+        }
+    }
 }
