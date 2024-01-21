@@ -126,7 +126,12 @@ final class ProfileViewController: BaseViewController {
         guard let nickname = nicknameTextField.text else { return }
         UserDefaultsManager.shared.nickname = nickname
         
-        // TODO: Navigate to SearchViewController
+        if accessType == .setting { // 기존의 온보딩 화면과 프로필 '설정' 화면을 메모리에서 지움
+            UserDefaults.standard.setValue(true, forKey: "UserState")
+            UIApplication.shared.switchToMainTabBar()
+        } else { // setting이 아니고 edit인 경우에는 화면을 새로 그릴 필요는 없음
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 

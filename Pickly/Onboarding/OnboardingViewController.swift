@@ -21,7 +21,10 @@ final class OnboardingViewController: BaseViewController {
     }
     
     @objc func startButtonClicked() {
-        // TODO: Navigate to UserProfileView
+        let sb = UIStoryboard(name: "Profile", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
+        vc.accessType = .setting
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

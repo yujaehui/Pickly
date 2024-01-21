@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Pickly
 //
-//  Created by Jaehui Yu on 2/10/25.
+//  Created by Jaehui Yu on 1/21/24.
 //
 
 import UIKit
@@ -10,13 +10,11 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var titleList = ["검색", "설정"]
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        let value = UserDefaults.standard.bool(forKey: "UserState")
+        value == false ? UIApplication.shared.switchToOnboarding() : UIApplication.shared.switchToMainTabBar()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +44,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-
