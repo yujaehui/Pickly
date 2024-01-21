@@ -17,6 +17,10 @@ final class OnboardingViewController: BaseViewController {
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
     }
     
+    override func setNavigation() {
+        super.setNavigation()
+    }
+    
     override func configureView() {
         super.configureView()
         logoImageView.image = .logo
