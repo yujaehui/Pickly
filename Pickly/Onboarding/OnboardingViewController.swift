@@ -30,8 +30,7 @@ final class OnboardingViewController: BaseViewController {
 
 extension OnboardingViewController {
     func configureView() {
-        // TODO: Add logo image
-        logoImageView.image = UIImage(named: "")
+        logoImageView.image = .logo
         onboardingImageView.image = .onboarding
         startButton.greenButton("시작하기")
     }
