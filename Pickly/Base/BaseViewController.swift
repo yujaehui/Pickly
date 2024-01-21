@@ -22,5 +22,10 @@ class BaseViewController: UIViewController {
     
     func configureView() {
         self.view.backgroundColor = ColorStyle.background
+        view.subviews.forEach {
+            if let scrollView = $0 as? UIScrollView {
+                scrollView.backgroundColor = ColorStyle.background
+            }
+        }
     }
 }

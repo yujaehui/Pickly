@@ -14,8 +14,6 @@ class SearchDetailViewController: BaseViewController {
     var id = ""
     var name = ""
     
-    lazy var IDList: [String] = UserDefaultsManager.shared.productID ?? []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarAppearance()
@@ -27,6 +25,10 @@ class SearchDetailViewController: BaseViewController {
         super.setNavigation()
         navigationItem.title = name
         updateHeartButton()
+    }
+    
+    override func configureView() {
+        super.configureView()
     }
     
     // 네비게이션 바 UI 설정
@@ -49,24 +51,21 @@ class SearchDetailViewController: BaseViewController {
     }
     
     @objc func heartButtonClicked(_ sender: UIButton) {
-        if let index = IDList.firstIndex(of: id) {
-            IDList.remove(at: index)
+        guard var idList = UserDefaultsManager.shared.productID else { return }
+        if let index = idList.firstIndex(of: id) {
+            idList.remove(at: index)
         } else {
-            IDList.append(id)
+            idList.append(id)
         }
-        UserDefaultsManager.shared.productID = IDList
+        UserDefaultsManager.shared.productID = idList
         updateHeartButton()
     }
     
     // 하트 버튼 UI 업데이트
     private func updateHeartButton() {
-        let heartImage = IDList.contains(id) ? "heart.fill" : "heart"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: heartImage),
-            style: .plain,
-            target: self,
-            action: #selector(heartButtonClicked)
-        )
+        guard let idList = UserDefaultsManager.shared.productID else { return }
+        let heartImage = idList.contains(id) ? "heart.fill" : "heart"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: heartImage), style: .plain, target: self, action: #selector(heartButtonClicked))
     }
     
     // 네이버 쇼핑 웹뷰 로드

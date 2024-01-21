@@ -3,4 +3,309 @@
    uuid = "743982D4-6019-46D5-B28F-FF843082DC2B"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Search/SearchResultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "sort"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF - 86ba7e4759c45479"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchResultViewController.heartButtonClicked(__C.UIButton) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF - 86ba7e4759c45479"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchResultViewController.heartButtonClicked(__C.UIButton) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1496">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C063747-1CC1-43F1-B995-7893F61D6271"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Setting/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C063747-1CC1-43F1-B995-7893F61D6271 - 52703ca11d5402f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SettingViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Setting/SettingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "7C063747-1CC1-43F1-B995-7893F61D6271 - 52703ca11d5402f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SettingViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Setting/SettingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83D58E7F-FDC3-4DFD-80F1-6457BAC85C90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Setting/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "updateProfile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83D58E7F-FDC3-4DFD-80F1-6457BAC85C90 - 6f3f6ca94d8b03d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SettingViewController.updateProfile() -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Setting/SettingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "83D58E7F-FDC3-4DFD-80F1-6457BAC85C90 - 6f3f6ca94d8b0213"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SettingViewController.updateProfile() -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Setting/SettingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BD229D0-0DB0-44BC-BE09-40880E4ACB08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5BD229D0-0DB0-44BC-BE09-40880E4ACB08 - 7b278680e2dd492c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "5BD229D0-0DB0-44BC-BE09-40880E4ACB08 - 7b278680e2dd492c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  uuid = "5BD229D0-0DB0-44BC-BE09-40880E4ACB08 - 7b278680e2dd492c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "820">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4188DFFC-325A-491F-B932-62CBA04657A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4188DFFC-325A-491F-B932-62CBA04657A8 - 7b278680e2dd4903"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1080">
+               </Location>
+               <Location
+                  uuid = "4188DFFC-325A-491F-B932-62CBA04657A8 - 7b278680e2dd4903"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1DCEDF2-EFB5-4259-8712-7C3ECE93E06D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pickly/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E1DCEDF2-EFB5-4259-8712-7C3ECE93E06D - 7b278680e2dd4941"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+               <Location
+                  uuid = "E1DCEDF2-EFB5-4259-8712-7C3ECE93E06D - 7b278680e2dd4941"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pickly.SearchViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Pickly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "1252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

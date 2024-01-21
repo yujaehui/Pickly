@@ -40,19 +40,10 @@ class SearchResultViewController: BaseViewController {
         didSet { sortCollectionView.reloadData() }
     }
     
-    var IDList = UserDefaultsManager.shared.productID ?? [] {
-        didSet { resultCollectionView.reloadData() }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         callRequest()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        IDList = UserDefaultsManager.shared.productID ?? []
     }
     
     override func setNavigation() {
@@ -62,12 +53,8 @@ class SearchResultViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        sortCollectionView.setScrollViewBackgroundColor()
-        resultCollectionView.setScrollViewBackgroundColor()
-        
         resultCountLabel.textColor = ColorStyle.point
         resultCountLabel.font = FontStyle.tertiary
-
         emptyLabel.text = "상품을 찾을 수 없어요"
         emptyLabel.textColor = ColorStyle.text
         emptyLabel.textAlignment = .center
@@ -75,13 +62,15 @@ class SearchResultViewController: BaseViewController {
     }
     
     @objc func heartButtonClicked(_ sender: UIButton) {
-        if IDList.contains(shoppingList.items[sender.tag].productID) {              // IDList가 sender의 productID를 가지고 있다면
-            IDList.removeAll { $0 == shoppingList.items[sender.tag].productID }     // 해당 productID를 IDList에서 제거
+        guard var idList = UserDefaultsManager.shared.productID else { return }
+        if idList.contains(shoppingList.items[sender.tag].productID) {
+            idList.removeAll { $0 == shoppingList.items[sender.tag].productID }
         } else {
-            IDList.append(shoppingList.items[sender.tag].productID)                 // 그게 아니라면 productID를 IDList에 추가
+            idList.append(shoppingList.items[sender.tag].productID)
         }
-        UserDefaultsManager.shared.productID = IDList                               // 이후 IDList를 저장소에 저장
-        resultCollectionView.reloadData()                                           // 테이블뷰 다시 그리기
+        UserDefaultsManager.shared.productID = idList
+        resultCollectionView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name(Noti.heartButtonClicked.rawValue), object: nil)
     }
 }
 
@@ -131,24 +120,14 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sortCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SortCollectionViewCell.identifier, for: indexPath) as! SortCollectionViewCell
-            cell.sortLabel.text = Sort.allCases[indexPath.row].text
-            cell.sortLabel.textColor = sort == Sort.allCases[indexPath.row] ? ColorStyle.background : ColorStyle.text
-            cell.sortLabel.backgroundColor = sort == Sort.allCases[indexPath.row] ? ColorStyle.text : ColorStyle.background
+            let row = indexPath.row
+            cell.configureCell(row, sort: sort)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
-            let row = shoppingList.items[indexPath.row]
-            let imageURL = URL(string: row.image)
-            cell.productImageView.kf.setImage(with: imageURL)
-            cell.brandLabel.text = row.brand
-            cell.productNameLabel.text = TextProcessingManager.shared.removeHTMLTags(from: row.title)
-            cell.priceLabel.text = NumberFormatterManager.shared.formatCurrency(row.lprice)
-            if IDList.contains(row.productID) { // productID가 IDList 안에 있다면
-                cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) // 채워진 하트로 표시
-            } else { // 아니라면
-                cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal) // 비워진 하트로 표시
-            }
-            cell.heartButton.tag = indexPath.row
+            let row = indexPath.row
+            let item = shoppingList.items[row]
+            cell.configureCell(row, item: item)
             cell.heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
             return cell
         }
@@ -160,7 +139,7 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
             start = 1
             callRequest()
         } else {
-            let sb = UIStoryboard(name: "Search", bundle: nil)
+            let sb = UIStoryboard(name: StoryboardName.Search.rawValue, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
             vc.id = shoppingList.items[indexPath.row].productID
             vc.name = TextProcessingManager.shared.removeHTMLTags(from: shoppingList.items[indexPath.row].title)
@@ -261,10 +240,6 @@ extension SearchResultViewController {
     func showEmptyState(_ state: Bool) {
         resultCountLabel.isHidden = state
         resultCollectionView.isHidden = state
-//        accuracyButton.isHidden = state
-//        dateButton.isHidden = state
-//        expensiveButton.isHidden = state
-//        cheapButton.isHidden = state
         emptyLabel.isHidden = !state
     }
 }

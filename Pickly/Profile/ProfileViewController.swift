@@ -55,6 +55,7 @@ enum NicknameState {
 enum Noti: String {
     case profileChanged                     // ProfileViewController -> SettingViewController, SearchViewController
     case profileImageChanged                // ProfileImageViewController -> ProfileViewController
+    case heartButtonClicked                 // SearchResultViewcController -> SettingViewController
 }
 
 final class ProfileViewController: BaseViewController {
@@ -134,7 +135,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     @objc func profileButtonClicked() {
-        let sb = UIStoryboard(name: "Profile", bundle: nil)
+        let sb = UIStoryboard(name: StoryboardName.Profile.rawValue, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ProfileImageViewController.identifier) as! ProfileImageViewController
         vc.accessType = accessType
         let nav = UINavigationController(rootViewController: vc)
@@ -146,7 +147,7 @@ final class ProfileViewController: BaseViewController {
         UserDefaultsManager.shared.nickname = nickname
         
         if accessType == .setting {
-            UserDefaults.standard.setValue(true, forKey: "UserState")
+            UserDefaultsManager.shared.userState = true
             UIApplication.shared.switchToMainTabBar()
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
@@ -159,7 +160,6 @@ final class ProfileViewController: BaseViewController {
     }
     
     deinit {
-        print("ProfileViewController Deinit")
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(Noti.profileImageChanged.rawValue), object: nil)
     }
 }

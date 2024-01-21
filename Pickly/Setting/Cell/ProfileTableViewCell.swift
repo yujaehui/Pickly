@@ -7,25 +7,26 @@
 
 import UIKit
 
-class ProfileTableViewCell: UITableViewCell {
-    
+class ProfileTableViewCell: BaseTableViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var likeStateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        selectionStyle = .none
         backgroundColor = .secondaryLabel
-        
         profileImageView.configureProfileImageView()
-        
         nicknameLabel.textColor = ColorStyle.text
         nicknameLabel.font = FontStyle.primary
-    
         likeStateLabel.textColor = ColorStyle.text
         likeStateLabel.font = FontStyle.secondary
     }
+    
+    func configureCell() {
+        profileImageView.image = UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)")
+        nicknameLabel.text = UserDefaultsManager.shared.nickname
+        if let count = UserDefaultsManager.shared.productID?.count {
+            likeStateLabel.attributedText = TextProcessingManager.shared.textColorChange("\(count)개의 상품을 좋아하고 있어요!", changeText: "\(count)개의 상품")
+        }
+    }
 }
-

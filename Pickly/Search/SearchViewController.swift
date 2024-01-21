@@ -14,14 +14,7 @@ final class SearchViewController: BaseViewController {
     @IBOutlet var emptyImageView: UIImageView!
     @IBOutlet var emptyLabel: UILabel!
     @IBOutlet var recentSearchTableView: UITableView!
-    
-    private var recentSearchList: [String] = UserDefaultsManager.shared.searchList ?? [] {
-        didSet {
-            UserDefaultsManager.shared.searchList = recentSearchList
-            updateUIForRecentSearches()
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
@@ -40,33 +33,27 @@ final class SearchViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        recentSearchTableView.setScrollViewBackgroundColor()
-        
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.textColor = ColorStyle.text
         searchBar.searchTextField.backgroundColor = .secondaryLabel
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         searchBar.searchTextField.leftView?.tintColor = .lightGray
-        
         recentSearchLabel.textColor = ColorStyle.text
         recentSearchLabel.font = FontStyle.tertiary
-        
         deleteAllButton.setTitle("전체 삭제", for: .normal)
         deleteAllButton.tintColor = ColorStyle.point
         deleteAllButton.titleLabel?.font = FontStyle.tertiary
-        
         emptyImageView.image = UIImage(named: "empty")
-        
         emptyLabel.text = "최근 검색어가 없어요"
         emptyLabel.textColor = ColorStyle.text
         emptyLabel.font = FontStyle.primary
         emptyLabel.textAlignment = .center
-        
         updateUIForRecentSearches()
     }
     
     private func updateUIForRecentSearches() {
-        let hasRecentSearches = !recentSearchList.isEmpty
+        guard let searchList = UserDefaultsManager.shared.searchList else { return }
+        let hasRecentSearches = !searchList.isEmpty
         recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
         deleteAllButton.isHidden = !hasRecentSearches
         recentSearchTableView.isHidden = !hasRecentSearches
@@ -74,11 +61,13 @@ final class SearchViewController: BaseViewController {
     }
 
     @objc func deleteButtonClicked(_ sender: UIButton) {
-        recentSearchList.remove(at: sender.tag)
+        guard var searchList = UserDefaultsManager.shared.searchList else { return }
+        searchList.remove(at: sender.tag)
     }
     
     @objc func deleteAllButtonClicked() {
-        recentSearchList.removeAll()
+        guard var searchList = UserDefaultsManager.shared.searchList else { return }
+        searchList.removeAll()
     }
     
     @objc func updateProfile() {
@@ -102,20 +91,21 @@ extension SearchViewController {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSearchList.count
+        guard let searchList = UserDefaultsManager.shared.searchList else { return 0 }
+        return searchList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecentSearchTableViewCell.identifier, for: indexPath) as! RecentSearchTableViewCell
         let row = indexPath.row
-        cell.recentSearchLabel.text = recentSearchList[row]
-        cell.deleteButton.tag = row
+        cell.configureCell(row)
         cell.deleteButton.addTarget(self, action: #selector(deleteButtonClicked), for: .touchUpInside)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchBar.text = recentSearchList[indexPath.row]
+        guard let searchList = UserDefaultsManager.shared.searchList else { return }
+        searchBar.text = searchList[indexPath.row]
         guard let text = searchBar.text, !text.isEmpty else { return }
         search(text: text)
     }
@@ -132,14 +122,15 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     private func search(text: String) {
-        recentSearchList.removeAll { $0 == text }                       // 최근 검색어 목록에 해당 검색어와 같은 게 있는지 확인, 있다면 제거
-        recentSearchList.insert(text, at: 0)                            // 이후 해당 검색어를 최근 검색어 목록 첫번째 항목에 추가
-        if recentSearchList.count > 7 {                                 // 최근 검색어 목록의 총 항목 수가 7개를 넘으면 가장 오래된 항목 제거
-            recentSearchList.removeLast()
+        guard var searchList = UserDefaultsManager.shared.searchList else { return }
+        searchList.removeAll { $0 == text }                       // 최근 검색어 목록에 해당 검색어와 같은 게 있는지 확인, 있다면 제거
+        searchList.insert(text, at: 0)                            // 이후 해당 검색어를 최근 검색어 목록 첫번째 항목에 추가
+        if searchList.count > 7 {                                 // 최근 검색어 목록의 총 항목 수가 7개를 넘으면 가장 오래된 항목 제거
+            searchList.removeLast()
         }
-        UserDefaultsManager.shared.searchList = recentSearchList        // 이후 최근 검색어 목록을 저장소에 저장
+        UserDefaultsManager.shared.searchList = searchList        // 이후 최근 검색어 목록을 저장소에 저장
         
-        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let sb = UIStoryboard(name: StoryboardName.Search.rawValue, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
         vc.searchText = text
         navigationController?.pushViewController(vc, animated: true)

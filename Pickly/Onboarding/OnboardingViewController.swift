@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum StoryboardName: String {
+    case Onboarding
+    case Profile
+    case Setting
+    case Search
+}
+
 final class OnboardingViewController: BaseViewController {
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var onboardingImageView: UIImageView!
@@ -29,7 +36,7 @@ final class OnboardingViewController: BaseViewController {
     }
     
     @objc func startButtonClicked() {
-        let sb = UIStoryboard(name: "Profile", bundle: nil)
+        let sb = UIStoryboard(name: StoryboardName.Profile.rawValue, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
         vc.accessType = .setting
         navigationController?.pushViewController(vc, animated: true)

@@ -13,7 +13,7 @@ final class ProfileImageViewController: BaseViewController {
     @IBOutlet var profileImageCollectionView: UICollectionView!
     
     var accessType: AccessType = .setting
-    var profileImage: Int = UserDefaultsManager.shared.profileImage
+    var profileImage: Int = UserDefaultsManager.shared.profileImage // Noti 전달을 위해 필요
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,6 @@ final class ProfileImageViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        profileImageCollectionView.setScrollViewBackgroundColor()
         profileImageView.image = UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)")
         profileImageView.configureProfileImageView()
     }
@@ -69,14 +68,8 @@ extension ProfileImageViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
-        cell.profileImageView.image = UIImage(named: "profile\(indexPath.row + 1)")
-        
-        if profileImage == indexPath.row + 1 {
-            cell.profileImageView.layer.borderWidth = 4
-            cell.profileImageView.layer.borderColor = ColorStyle.point.cgColor
-        } else {
-            cell.profileImageView.layer.borderWidth = 0
-        }
+        let row = indexPath.row
+        cell.configureCell(row, profileImage: profileImage)
         return cell
     }
     

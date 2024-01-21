@@ -7,17 +7,17 @@
 
 import UIKit
 
-class SettingTableViewCell: UITableViewCell {
-    
+class SettingTableViewCell: BaseTableViewCell {
     @IBOutlet var settingLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        selectionStyle = .none
         backgroundColor = .secondaryLabel
-        
         settingLabel.textColor = ColorStyle.text
         settingLabel.font = FontStyle.tertiary
+    }
+    
+    func configureCell(_ row: Int) {
+        settingLabel.text = SettingOption.allCases[row].rawValue
     }
 }

@@ -10,10 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var titleList = ["검색", "설정"]
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let value = UserDefaults.standard.bool(forKey: "UserState")
+        let value = UserDefaultsManager.shared.userState
         value == false ? UIApplication.shared.switchToOnboarding() : UIApplication.shared.switchToMainTabBar()
     }
 

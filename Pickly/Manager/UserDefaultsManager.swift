@@ -16,6 +16,7 @@ class UserDefaultsManager {
         case nickname
         case searchList
         case productID
+        case userState
     }
     
     let ud = UserDefaults.standard
@@ -43,6 +44,10 @@ class UserDefaultsManager {
     var productID: [String]? {
         get { ud.array(forKey: UDKey.productID.rawValue) as? [String] }
         set { ud.setValue(newValue, forKey: UDKey.productID.rawValue) }
+    }
+    var userState: Bool {
+        get { ud.bool(forKey: UDKey.userState.rawValue) }
+        set { ud .setValue(newValue, forKey: UDKey.userState.rawValue)}
     }
     
     // 모든 userDefaults 항목 제거
