@@ -19,4 +19,16 @@ class TextProcessingManager {
         attributedText.addAttributes(countAttributes, range: countRange)
         return attributedText
     }
+    
+    func removeHTMLTags(from string: String) -> String {
+        do {
+            let regex = try NSRegularExpression(pattern: "<[^>]+>", options: [])
+            let range = NSRange(location: 0, length: string.utf16.count)
+            let withoutHTML = regex.stringByReplacingMatches(in: string, options: [], range: range, withTemplate: "")
+            return withoutHTML
+        } catch {
+            print("Error removing HTML tags: \(error.localizedDescription)")
+            return string
+        }
+    }
 }
