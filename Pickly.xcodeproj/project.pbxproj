@@ -151,16 +151,16 @@
 		095AFA8E2D59DD500078FD15 /* Pickly */ = {
 			isa = PBXGroup;
 			children = (
-				095AFB122D5B34E40078FD15 /* Custom */,
-				095AFAFB2D5B221E0078FD15 /* Search */,
-				095AFAE12D59FC550078FD15 /* Setting */,
-				095AFAD82D59EA7E0078FD15 /* Manager */,
-				095AFAC62D59E6CB0078FD15 /* Base */,
 				095AFABD2D59E4EE0078FD15 /* Onboarding */,
 				095AFAC72D59E8780078FD15 /* Profile */,
+				095AFAE12D59FC550078FD15 /* Setting */,
+				095AFAFB2D5B221E0078FD15 /* Search */,
+				095AFAA52D59DF510078FD15 /* Network */,
+				095AFAC62D59E6CB0078FD15 /* Base */,
+				095AFB122D5B34E40078FD15 /* Custom */,
+				095AFAD82D59EA7E0078FD15 /* Manager */,
 				095AFABA2D59E31C0078FD15 /* Extension */,
 				095AFAB32D59E2310078FD15 /* DesignSystem */,
-				095AFAA52D59DF510078FD15 /* Network */,
 				095AFA8F2D59DD500078FD15 /* AppDelegate.swift */,
 				095AFA912D59DD500078FD15 /* SceneDelegate.swift */,
 				095AFA932D59DD500078FD15 /* ViewController.swift */,
@@ -229,11 +229,10 @@
 		095AFAC72D59E8780078FD15 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				095AFB192D5B47A80078FD15 /* Cell */,
 				095AFAC82D59E8870078FD15 /* Profile.storyboard */,
 				095AFACA2D59E88D0078FD15 /* ProfileViewController.swift */,
 				095AFACC2D59E8920078FD15 /* ProfileImageViewController.swift */,
-				095AFAD02D59E89C0078FD15 /* ProfileImageCollectionViewCell.xib */,
-				095AFACE2D59E8970078FD15 /* ProfileImageCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -251,12 +250,9 @@
 		095AFAE12D59FC550078FD15 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				095AFB1A2D5B47B30078FD15 /* Cell */,
 				095AFAE22D59FC600078FD15 /* Setting.storyboard */,
 				095AFAE42D59FC650078FD15 /* SettingViewController.swift */,
-				095AFAE82D59FC730078FD15 /* ProfileTableViewCell.xib */,
-				095AFAE62D59FC6B0078FD15 /* ProfileTableViewCell.swift */,
-				095AFAEA2D59FC790078FD15 /* SettingTableViewCell.xib */,
-				095AFAEC2D59FC7E0078FD15 /* SettingTableViewCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -272,16 +268,11 @@
 		095AFAFB2D5B221E0078FD15 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				095AFB1B2D5B47BE0078FD15 /* Cell */,
 				095AFAFC2D5B22290078FD15 /* Search.storyboard */,
 				095AFAFE2D5B22310078FD15 /* SearchViewController.swift */,
 				095AFB042D5B22420078FD15 /* SearchResultViewController.swift */,
 				095AFB0A2D5B22550078FD15 /* SearchDetailViewController.swift */,
-				095AFB022D5B22390078FD15 /* RecentSearchTableViewCell.xib */,
-				095AFB002D5B22350078FD15 /* RecentSearchTableViewCell.swift */,
-				095AFB082D5B22500078FD15 /* SearchResultCollectionViewCell.xib */,
-				095AFB062D5B22470078FD15 /* SearchResultCollectionViewCell.swift */,
-				095AFB0F2D5B2D090078FD15 /* SortCollectionViewCell.xib */,
-				095AFB0E2D5B2D090078FD15 /* SortCollectionViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -292,6 +283,39 @@
 				095AFB132D5B34F00078FD15 /* PaddingLabel.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		095AFB192D5B47A80078FD15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095AFAD02D59E89C0078FD15 /* ProfileImageCollectionViewCell.xib */,
+				095AFACE2D59E8970078FD15 /* ProfileImageCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		095AFB1A2D5B47B30078FD15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095AFAE82D59FC730078FD15 /* ProfileTableViewCell.xib */,
+				095AFAE62D59FC6B0078FD15 /* ProfileTableViewCell.swift */,
+				095AFAEA2D59FC790078FD15 /* SettingTableViewCell.xib */,
+				095AFAEC2D59FC7E0078FD15 /* SettingTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		095AFB1B2D5B47BE0078FD15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095AFB022D5B22390078FD15 /* RecentSearchTableViewCell.xib */,
+				095AFB002D5B22350078FD15 /* RecentSearchTableViewCell.swift */,
+				095AFB082D5B22500078FD15 /* SearchResultCollectionViewCell.xib */,
+				095AFB062D5B22470078FD15 /* SearchResultCollectionViewCell.swift */,
+				095AFB0F2D5B2D090078FD15 /* SortCollectionViewCell.xib */,
+				095AFB0E2D5B2D090078FD15 /* SortCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
