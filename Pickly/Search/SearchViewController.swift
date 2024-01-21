@@ -8,7 +8,6 @@
 import UIKit
 
 final class SearchViewController: BaseViewController {
-    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var recentSearchLabel: UILabel!
     @IBOutlet var deleteAllButton: UIButton!
@@ -22,23 +21,21 @@ final class SearchViewController: BaseViewController {
             updateUIForRecentSearches()
         }
     }
-    var nickname: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         deleteAllButton.addTarget(self, action: #selector(deleteAllButtonClicked), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProfile), name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        nickname = UserDefaultsManager.shared.nickname
-        setNavigation()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     override func setNavigation() {
         super.setNavigation()
-        navigationItem.title = "\(nickname)의 새싹쇼핑"
+        navigationItem.title = "\(UserDefaultsManager.shared.nickname)의 새싹쇼핑"
     }
     
     override func configureView() {
@@ -68,8 +65,12 @@ final class SearchViewController: BaseViewController {
         updateUIForRecentSearches()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+    private func updateUIForRecentSearches() {
+        let hasRecentSearches = !recentSearchList.isEmpty
+        recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
+        deleteAllButton.isHidden = !hasRecentSearches
+        recentSearchTableView.isHidden = !hasRecentSearches
+        recentSearchTableView.reloadData()
     }
 
     @objc func deleteButtonClicked(_ sender: UIButton) {
@@ -80,18 +81,17 @@ final class SearchViewController: BaseViewController {
         recentSearchList.removeAll()
     }
     
-    private func updateUIForRecentSearches() {
-        let hasRecentSearches = !recentSearchList.isEmpty
-        recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
-        deleteAllButton.isHidden = !hasRecentSearches
-        recentSearchTableView.isHidden = !hasRecentSearches
-        recentSearchTableView.reloadData()
+    @objc func updateProfile() {
+        setNavigation()
+    }
+    
+    deinit {
+        print("SearchViewController Deinit")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
     }
 }
 
 extension SearchViewController {
-
-    
     func configureTableView() {
         let xib = UINib(nibName: RecentSearchTableViewCell.identifier, bundle: nil)
         recentSearchTableView.register(xib, forCellReuseIdentifier: RecentSearchTableViewCell.identifier)

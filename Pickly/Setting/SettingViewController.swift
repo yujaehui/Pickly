@@ -24,23 +24,14 @@ final class SettingViewController: BaseViewController {
     
     @IBOutlet var settingTableView: UITableView!
     
-    var count = 0 {
+    var count = UserDefaultsManager.shared.productID?.count ?? 0 {
         didSet { settingTableView.reloadData() }
     }
-    
-    var profileImage = 0
-    var nickname = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        count = UserDefaultsManager.shared.productID?.count ?? 0
-        profileImage = UserDefaultsManager.shared.profileImage
-        nickname = UserDefaultsManager.shared.nickname
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProfile), name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
     }
     
     override func setNavigation() {
@@ -51,6 +42,15 @@ final class SettingViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         settingTableView.setScrollViewBackgroundColor()
+    }
+    
+    @objc func updateProfile() {
+        settingTableView.reloadData()
+    }
+    
+    deinit {
+        print("SettingViewController Deinit")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
     }
 }
 
@@ -78,8 +78,8 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == SettingType.profile.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
-            cell.profileImageView.image = UIImage(named: "profile\(profileImage)")
-            cell.nicknameLabel.text = nickname
+            cell.profileImageView.image = UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)")
+            cell.nicknameLabel.text = UserDefaultsManager.shared.nickname
             cell.likeStateLabel.attributedText = TextProcessingManager.shared.textColorChange("\(count)개의 상품을 좋아하고 있어요!", changeText: "\(count)개의 상품")
             return cell
         } else {
@@ -94,7 +94,6 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let sb = UIStoryboard(name: "Profile", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
             vc.accessType = .edit
-            //vc.profileImage = UserDefaultsManager.shared.profileImage
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.section == SettingType.setting.rawValue && indexPath.row == 4 {
             showAlert(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", buttonTitle: "확인") {

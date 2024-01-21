@@ -53,7 +53,8 @@ enum NicknameState {
 }
 
 enum Noti: String {
-    case profileImageChanged
+    case profileChanged                     // ProfileViewController -> SettingViewController, SearchViewController
+    case profileImageChanged                // ProfileImageViewController -> ProfileViewController
 }
 
 final class ProfileViewController: BaseViewController {
@@ -148,6 +149,7 @@ final class ProfileViewController: BaseViewController {
             UserDefaults.standard.setValue(true, forKey: "UserState")
             UIApplication.shared.switchToMainTabBar()
         } else {
+            NotificationCenter.default.post(name: NSNotification.Name(Noti.profileChanged.rawValue), object: nil)
             navigationController?.popViewController(animated: true)
         }
     }
