@@ -22,15 +22,4 @@ class ProfileImageCollectionViewCell: UICollectionViewCell {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
     }
-    
-    func configureCell(_ row: Int, profileImage: Int) {
-        profileImageView.image = UIImage(named: "profile\(row+1)")
-
-        if profileImage == row+1 {
-            profileImageView.layer.borderWidth = 4
-            profileImageView.layer.borderColor = ColorStyle.point.cgColor
-        } else {
-            profileImageView.layer.borderWidth = 0
-        }
-    }
 }

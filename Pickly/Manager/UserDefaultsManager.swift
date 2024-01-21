@@ -12,7 +12,7 @@ class UserDefaultsManager {
     static let shared = UserDefaultsManager()
     
     enum UDKey: String {
-        case setting
+        case profileImage
         case nickname
         case searchList
         case productID
@@ -21,8 +21,16 @@ class UserDefaultsManager {
     let ud = UserDefaults.standard
     
     var profileImage: Int {
-        get { ud.integer(forKey: UDKey.setting.rawValue) }
-        set { ud.setValue(newValue, forKey: UDKey.setting.rawValue) }
+        get {
+            let savedValue = ud.integer(forKey: UDKey.profileImage.rawValue)
+            if savedValue == 0 {
+                let randomImage = Int.random(in: 1...14)
+                ud.set(randomImage, forKey: UDKey.profileImage.rawValue)
+                return randomImage
+            }
+            return savedValue
+        }
+        set { ud.setValue(newValue, forKey: UDKey.profileImage.rawValue) }
     }
     var nickname: String {
         get { ud.string(forKey: UDKey.nickname.rawValue) ?? "" }

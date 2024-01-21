@@ -94,7 +94,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let sb = UIStoryboard(name: "Profile", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
             vc.accessType = .edit
-            vc.profileImage = UserDefaultsManager.shared.profileImage
+            //vc.profileImage = UserDefaultsManager.shared.profileImage
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.section == SettingType.setting.rawValue && indexPath.row == 4 {
             showAlert(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", buttonTitle: "확인") {

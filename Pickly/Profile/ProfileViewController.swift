@@ -52,8 +52,11 @@ enum NicknameState {
     }
 }
 
+enum Noti: String {
+    case profileImageChanged
+}
+
 final class ProfileViewController: BaseViewController {
-    
     @IBOutlet var profileButton: UIButton!
     @IBOutlet var cameraImageView: UIImageView!
     @IBOutlet var nicknameTextField: UITextField!
@@ -61,39 +64,12 @@ final class ProfileViewController: BaseViewController {
     @IBOutlet var completeButton: UIButton!
     
     var accessType: AccessType = .setting
-    var profileImage = Int.random(in: 1...14)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
         completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        profileButton.setImage(UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)"), for: .normal)
-    }
-    
-    override func configureView() {
-        super.configureView()
-        cameraImageView.image = .camera
-
-        if UserDefaultsManager.shared.profileImage == 0 {
-            UserDefaultsManager.shared.profileImage = profileImage
-        }
-        profileButton.configureProfileButton()
-    
-        nicknameTextField.becomeFirstResponder()
-        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        nicknameTextField.textColor = ColorStyle.text
-        nicknameTextField.borderStyle = .none
-        nicknameTextField.underLine(viewSize: view.bounds.width, color: ColorStyle.text)
-        nicknameTextField.text = accessType == .setting ? "" : UserDefaultsManager.shared.nickname
-        
-        nicknameStateLabel.text = ""
-        nicknameStateLabel.font = FontStyle.tertiary
-        
-        completeButton.greenButton("완료")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProfileImage), name: NSNotification.Name(Noti.profileImageChanged.rawValue), object: nil)
     }
     
     override func setNavigation() {
@@ -101,9 +77,26 @@ final class ProfileViewController: BaseViewController {
         navigationItem.title = accessType.rawValue
     }
     
+    override func configureView() {
+        super.configureView()
+        cameraImageView.image = .camera
+        profileButton.setImage(UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)"), for: .normal)
+        profileButton.configureProfileButton()
+        nicknameTextField.becomeFirstResponder()
+        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        nicknameTextField.textColor = ColorStyle.text
+        nicknameTextField.borderStyle = .none
+        nicknameTextField.underLine(viewSize: view.bounds.width, color: ColorStyle.text)
+        nicknameTextField.text = accessType == .setting ? "" : UserDefaultsManager.shared.nickname
+        nicknameStateLabel.font = FontStyle.tertiary
+        completeButton.greenButton("완료")
+    }
+    
     @IBAction func textFieldState(_ sender: UITextField) {
         guard let text = sender.text else { return }
-        if text.isEmpty { completeButton.isEnabled = false }
+        let state = validateNickname(text)
+        stateTextField(state)
+        completeButton.isEnabled = !text.isEmpty
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {
@@ -143,19 +136,28 @@ final class ProfileViewController: BaseViewController {
         let sb = UIStoryboard(name: "Profile", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ProfileImageViewController.identifier) as! ProfileImageViewController
         vc.accessType = accessType
-        vc.profileImage = UserDefaultsManager.shared.profileImage
-        navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
     @objc func completeButtonClicked() {
         guard let nickname = nicknameTextField.text else { return }
         UserDefaultsManager.shared.nickname = nickname
         
-        if accessType == .setting { // 기존의 온보딩 화면과 프로필 '설정' 화면을 메모리에서 지움
+        if accessType == .setting {
             UserDefaults.standard.setValue(true, forKey: "UserState")
             UIApplication.shared.switchToMainTabBar()
-        } else { // setting이 아니고 edit인 경우에는 화면을 새로 그릴 필요는 없음
+        } else {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @objc func updateProfileImage() {
+        profileButton.setImage(UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)"), for: .normal)
+    }
+    
+    deinit {
+        print("ProfileViewController Deinit")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(Noti.profileImageChanged.rawValue), object: nil)
     }
 }

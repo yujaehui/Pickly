@@ -19,7 +19,6 @@ extension UIButton {
     
     func configureProfileButton() {
         self.setTitle("", for: .normal)
-        self.setImage(UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)"), for: .normal)
         self.layer.cornerRadius = self.bounds.width / 2
         self.clipsToBounds = true
         self.layer.borderWidth = 4
