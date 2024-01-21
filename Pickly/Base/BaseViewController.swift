@@ -8,12 +8,18 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = ColorStyle.background
+        configureView()
+    }
+    
+    func setNavigation() {
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ColorStyle.text]
         self.navigationController?.navigationBar.tintColor = ColorStyle.text
+    }
+    
+    func configureView() {
+        self.view.backgroundColor = ColorStyle.background
     }
 }

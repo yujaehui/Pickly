@@ -46,8 +46,6 @@ class SearchResultViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        configureView()
         configureCollectionView()
         callRequest()
     }
@@ -57,25 +55,13 @@ class SearchResultViewController: BaseViewController {
         IDList = UserDefaultsManager.shared.productID ?? []
     }
     
-    @objc func heartButtonClicked(_ sender: UIButton) {
-        if IDList.contains(shoppingList.items[sender.tag].productID) {              // IDList가 sender의 productID를 가지고 있다면
-            IDList.removeAll { $0 == shoppingList.items[sender.tag].productID }     // 해당 productID를 IDList에서 제거
-        } else {
-            IDList.append(shoppingList.items[sender.tag].productID)                 // 그게 아니라면 productID를 IDList에 추가
-        }
-        UserDefaultsManager.shared.productID = IDList                               // 이후 IDList를 저장소에 저장
-        resultCollectionView.reloadData()                                           // 테이블뷰 다시 그리기
-    }
-}
-
-extension SearchResultViewController {
-    func setNavigation() {
+    override func setNavigation() {
+        super.setNavigation()
         navigationItem.title = searchText
     }
-}
-
-extension SearchResultViewController {
-    func configureView() {
+    
+    override func configureView() {
+        super.configureView()
         sortCollectionView.setScrollViewBackgroundColor()
         resultCollectionView.setScrollViewBackgroundColor()
         
@@ -86,6 +72,16 @@ extension SearchResultViewController {
         emptyLabel.textColor = ColorStyle.text
         emptyLabel.textAlignment = .center
         emptyLabel.font = FontStyle.primary
+    }
+    
+    @objc func heartButtonClicked(_ sender: UIButton) {
+        if IDList.contains(shoppingList.items[sender.tag].productID) {              // IDList가 sender의 productID를 가지고 있다면
+            IDList.removeAll { $0 == shoppingList.items[sender.tag].productID }     // 해당 productID를 IDList에서 제거
+        } else {
+            IDList.append(shoppingList.items[sender.tag].productID)                 // 그게 아니라면 productID를 IDList에 추가
+        }
+        UserDefaultsManager.shared.productID = IDList                               // 이후 IDList를 저장소에 저장
+        resultCollectionView.reloadData()                                           // 테이블뷰 다시 그리기
     }
 }
 

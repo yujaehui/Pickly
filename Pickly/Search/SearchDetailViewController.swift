@@ -18,19 +18,15 @@ class SearchDetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTabBarAppearance()
         setNavigationBarAppearance()
-        setNavigation()
+        setTabBarAppearance()
         loadWebView()
     }
- 
-    // 탭 바 UI 설정
-    private func setTabBarAppearance() {
-        let tabAppearance = UITabBarAppearance()
-        tabAppearance.configureWithOpaqueBackground()
-        tabAppearance.backgroundColor = ColorStyle.background
-        tabBarController?.tabBar.standardAppearance = tabAppearance
-        tabBarController?.tabBar.scrollEdgeAppearance = tabAppearance
+    
+    override func setNavigation() {
+        super.setNavigation()
+        navigationItem.title = name
+        updateHeartButton()
     }
     
     // 네비게이션 바 UI 설정
@@ -42,10 +38,14 @@ class SearchDetailViewController: BaseViewController {
         navigationController?.navigationBar.standardAppearance = navigationAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationAppearance
     }
-    
-    private func setNavigation() {
-        navigationItem.title = name
-        updateHeartButton()
+ 
+    // 탭 바 UI 설정
+    private func setTabBarAppearance() {
+        let tabAppearance = UITabBarAppearance()
+        tabAppearance.configureWithOpaqueBackground()
+        tabAppearance.backgroundColor = ColorStyle.background
+        tabBarController?.tabBar.standardAppearance = tabAppearance
+        tabBarController?.tabBar.scrollEdgeAppearance = tabAppearance
     }
     
     @objc func heartButtonClicked(_ sender: UIButton) {

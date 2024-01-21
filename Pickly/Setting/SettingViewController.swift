@@ -33,8 +33,6 @@ final class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        configureView()
         configureTableView()
     }
     
@@ -44,16 +42,14 @@ final class SettingViewController: BaseViewController {
         profileImage = UserDefaultsManager.shared.profileImage
         nickname = UserDefaultsManager.shared.nickname
     }
-}
-
-extension SettingViewController {
-    func setNavigation() {
+    
+    override func setNavigation() {
+        super.setNavigation()
         navigationItem.title = "설정"
     }
-}
-
-extension SettingViewController {
-    func configureView() {
+    
+    override func configureView() {
+        super.configureView()
         settingTableView.setScrollViewBackgroundColor()
     }
 }

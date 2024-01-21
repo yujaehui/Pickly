@@ -26,7 +26,6 @@ final class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         configureTableView()
         deleteAllButton.addTarget(self, action: #selector(deleteAllButtonClicked), for: .touchUpInside)
     }
@@ -37,35 +36,13 @@ final class SearchViewController: BaseViewController {
         setNavigation()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-
-    @objc func deleteButtonClicked(_ sender: UIButton) {
-        recentSearchList.remove(at: sender.tag)
-    }
-    
-    @objc func deleteAllButtonClicked() {
-        recentSearchList.removeAll()
-    }
-    
-    private func updateUIForRecentSearches() {
-        let hasRecentSearches = !recentSearchList.isEmpty
-        recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
-        deleteAllButton.isHidden = !hasRecentSearches
-        recentSearchTableView.isHidden = !hasRecentSearches
-        recentSearchTableView.reloadData()
-    }
-}
-
-extension SearchViewController {
-    func setNavigation() {
+    override func setNavigation() {
+        super.setNavigation()
         navigationItem.title = "\(nickname)의 새싹쇼핑"
     }
-}
-
-extension SearchViewController {
-    func configureView() {
+    
+    override func configureView() {
+        super.configureView()
         recentSearchTableView.setScrollViewBackgroundColor()
         
         searchBar.searchBarStyle = .minimal
@@ -90,6 +67,30 @@ extension SearchViewController {
         
         updateUIForRecentSearches()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    @objc func deleteButtonClicked(_ sender: UIButton) {
+        recentSearchList.remove(at: sender.tag)
+    }
+    
+    @objc func deleteAllButtonClicked() {
+        recentSearchList.removeAll()
+    }
+    
+    private func updateUIForRecentSearches() {
+        let hasRecentSearches = !recentSearchList.isEmpty
+        recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
+        deleteAllButton.isHidden = !hasRecentSearches
+        recentSearchTableView.isHidden = !hasRecentSearches
+        recentSearchTableView.reloadData()
+    }
+}
+
+extension SearchViewController {
+
     
     func configureTableView() {
         let xib = UINib(nibName: RecentSearchTableViewCell.identifier, bundle: nil)

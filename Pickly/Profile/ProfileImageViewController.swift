@@ -17,8 +17,6 @@ final class ProfileImageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        configureView()
         configureCollectionView()
     }
     
@@ -26,16 +24,14 @@ final class ProfileImageViewController: BaseViewController {
         super.viewWillDisappear(animated)
         UserDefaultsManager.shared.profileImage = profileImage
     }
-}
-
-extension ProfileImageViewController {
-    func setNavigation() {
+    
+    override func setNavigation() {
+        super.setNavigation()
         navigationItem.title = accessType.rawValue
     }
-}
-
-extension ProfileImageViewController {
-    func configureView() {
+    
+    override func configureView() {
+        super.configureView()
         profileImageCollectionView.setScrollViewBackgroundColor()
         let profileImage = UserDefaultsManager.shared.profileImage
         profileImageView.image = UIImage(named: "profile\(profileImage)")

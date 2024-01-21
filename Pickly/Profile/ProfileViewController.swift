@@ -65,8 +65,6 @@ final class ProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        configureView()
         profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
         completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
     }
@@ -74,6 +72,33 @@ final class ProfileViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         profileButton.setImage(UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)"), for: .normal)
+    }
+    
+    override func configureView() {
+        super.configureView()
+        cameraImageView.image = .camera
+
+        if UserDefaultsManager.shared.profileImage == 0 {
+            UserDefaultsManager.shared.profileImage = profileImage
+        }
+        profileButton.configureProfileButton()
+    
+        nicknameTextField.becomeFirstResponder()
+        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        nicknameTextField.textColor = ColorStyle.text
+        nicknameTextField.borderStyle = .none
+        nicknameTextField.underLine(viewSize: view.bounds.width, color: ColorStyle.text)
+        nicknameTextField.text = accessType == .setting ? "" : UserDefaultsManager.shared.nickname
+        
+        nicknameStateLabel.text = ""
+        nicknameStateLabel.font = FontStyle.tertiary
+        
+        completeButton.greenButton("완료")
+    }
+    
+    override func setNavigation() {
+        super.setNavigation()
+        navigationItem.title = accessType.rawValue
     }
     
     @IBAction func textFieldState(_ sender: UITextField) {
@@ -132,34 +157,5 @@ final class ProfileViewController: BaseViewController {
         } else { // setting이 아니고 edit인 경우에는 화면을 새로 그릴 필요는 없음
             navigationController?.popViewController(animated: true)
         }
-    }
-}
-
-extension ProfileViewController {
-    func setNavigation() {
-        navigationItem.title = accessType.rawValue
-    }
-}
-
-extension ProfileViewController {
-    func configureView() {
-        cameraImageView.image = .camera
-
-        if UserDefaultsManager.shared.profileImage == 0 {
-            UserDefaultsManager.shared.profileImage = profileImage
-        }
-        profileButton.configureProfileButton()
-    
-        nicknameTextField.becomeFirstResponder()
-        nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력해주세요 :)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        nicknameTextField.textColor = ColorStyle.text
-        nicknameTextField.borderStyle = .none
-        nicknameTextField.underLine(viewSize: view.bounds.width, color: ColorStyle.text)
-        nicknameTextField.text = accessType == .setting ? "" : UserDefaultsManager.shared.nickname
-        
-        nicknameStateLabel.text = ""
-        nicknameStateLabel.font = FontStyle.tertiary
-        
-        completeButton.greenButton("완료")
     }
 }

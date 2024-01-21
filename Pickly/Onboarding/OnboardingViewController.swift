@@ -11,13 +11,17 @@ final class OnboardingViewController: BaseViewController {
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var onboardingImageView: UIImageView!
     @IBOutlet var startButton: UIButton!
-    
-    var count = 0
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
+    }
+    
+    override func configureView() {
+        super.configureView()
+        logoImageView.image = .logo
+        onboardingImageView.image = .onboarding
+        startButton.greenButton("시작하기")
     }
     
     @objc func startButtonClicked() {
@@ -25,13 +29,5 @@ final class OnboardingViewController: BaseViewController {
         let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
         vc.accessType = .setting
         navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension OnboardingViewController {
-    func configureView() {
-        logoImageView.image = .logo
-        onboardingImageView.image = .onboarding
-        startButton.greenButton("시작하기")
     }
 }
