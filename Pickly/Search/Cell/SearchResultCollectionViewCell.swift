@@ -25,22 +25,21 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
         priceLabel.font = FontStyle.primary
         priceLabel.textColor = ColorStyle.text
         heartButton.setTitle("", for: .normal)
+        heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
         heartButton.tintColor = ColorStyle.background
         heartButton.backgroundColor = ColorStyle.text
         heartButton.layer.cornerRadius = heartButton.frame.width / 2
         heartButton.clipsToBounds = true
     }
     
-    func configureCell(_ row: Int, item: Item) {
+    func configureCell(_ row: Int, item: Item, likeItems: [LikeItem]) {
         let imageURL = URL(string: item.image)
         productImageView.kf.setImage(with: imageURL)
         brandLabel.text = item.brand
         productNameLabel.text = TextProcessingManager.shared.removeHTMLTags(from: item.title)
         priceLabel.text = NumberFormatterManager.shared.formatCurrency(item.lprice)
-        if let idList = UserDefaultsManager.shared.productID {
-            let heartImage = idList.contains(item.productID) ? "heart.fill" : "heart"
-            heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
-        }
+        let heartImage = likeItems.contains { $0.id == item.productID } ? "heart.fill" : "heart"
+        heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
         heartButton.tag = row
     }
 }

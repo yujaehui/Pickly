@@ -24,7 +24,6 @@ class SearchDetailViewController: BaseViewController {
     override func setNavigation() {
         super.setNavigation()
         navigationItem.title = name
-        updateHeartButton()
     }
     
     override func configureView() {
@@ -48,24 +47,6 @@ class SearchDetailViewController: BaseViewController {
         tabAppearance.backgroundColor = ColorStyle.background
         tabBarController?.tabBar.standardAppearance = tabAppearance
         tabBarController?.tabBar.scrollEdgeAppearance = tabAppearance
-    }
-    
-    @objc func heartButtonClicked(_ sender: UIButton) {
-        guard var idList = UserDefaultsManager.shared.productID else { return }
-        if let index = idList.firstIndex(of: id) {
-            idList.remove(at: index)
-        } else {
-            idList.append(id)
-        }
-        UserDefaultsManager.shared.productID = idList
-        updateHeartButton()
-    }
-    
-    // 하트 버튼 UI 업데이트
-    private func updateHeartButton() {
-        guard let idList = UserDefaultsManager.shared.productID else { return }
-        let heartImage = idList.contains(id) ? "heart.fill" : "heart"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: heartImage), style: .plain, target: self, action: #selector(heartButtonClicked))
     }
     
     // 네이버 쇼핑 웹뷰 로드

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OtX-fz-ylr">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tlK-he-Wpe">
+            <objects>
+                <navigationController id="OtX-fz-ylr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6J-bb-4zJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nzl-jF-Clu" kind="show" id="hf3-AV-GMU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="paH-9A-cVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1340" y="-126"/>
+        </scene>
+        <!--Like View Controller-->
+        <scene sceneID="xod-Oh-7KO">
+            <objects>
+                <viewController storyboardIdentifier="LikeViewController" id="nzl-jF-Clu" customClass="LikeViewController" customModule="Pickly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aMt-qh-eGj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DN-m2-FKN">
+                                <rect key="frame" x="175.66666666666666" y="410.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-AW-YCu">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YOy-xq-E2w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YOy-xq-E2w" firstAttribute="bottom" secondItem="zgy-AW-YCu" secondAttribute="bottom" id="IF9-X7-QfJ"/>
+                            <constraint firstItem="zgy-AW-YCu" firstAttribute="leading" secondItem="YOy-xq-E2w" secondAttribute="leading" id="Jtj-sT-xdc"/>
+                            <constraint firstItem="zgy-AW-YCu" firstAttribute="top" secondItem="YOy-xq-E2w" secondAttribute="top" id="Rx5-v9-f0r"/>
+                            <constraint firstItem="0DN-m2-FKN" firstAttribute="centerY" secondItem="aMt-qh-eGj" secondAttribute="centerY" id="fDw-im-1D6"/>
+                            <constraint firstItem="YOy-xq-E2w" firstAttribute="trailing" secondItem="zgy-AW-YCu" secondAttribute="trailing" id="hdJ-nL-UrA"/>
+                            <constraint firstItem="0DN-m2-FKN" firstAttribute="centerX" secondItem="aMt-qh-eGj" secondAttribute="centerX" id="vSY-bY-WpI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z2a-JX-nkr"/>
+                    <connections>
+                        <outlet property="likeEmptyLabel" destination="0DN-m2-FKN" id="Gsq-dZ-azN"/>
+                        <outlet property="likeTableView" destination="zgy-AW-YCu" id="gGn-EE-qmC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b6L-FY-9v2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-523" y="-126"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

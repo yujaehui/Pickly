@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Shopping
-struct Shopping: Codable {
+struct Shopping: Decodable {
     var lastBuildDate: String
     var total: Int
     var start, display: Int
@@ -28,7 +28,7 @@ struct Shopping: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Decodable {
     let title: String
     let link: String
     let image: String

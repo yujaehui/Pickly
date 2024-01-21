@@ -52,7 +52,7 @@ final class SearchViewController: BaseViewController {
     }
     
     private func updateUIForRecentSearches() {
-        guard let searchList = UserDefaultsManager.shared.searchList else { return }
+        let searchList = UserDefaultsManager.shared.searchList ?? [] // nil이면 빈 배열 사용
         let hasRecentSearches = !searchList.isEmpty
         recentSearchLabel.text = hasRecentSearches ? "최근 검색" : ""
         deleteAllButton.isHidden = !hasRecentSearches
@@ -122,7 +122,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     private func search(text: String) {
-        guard var searchList = UserDefaultsManager.shared.searchList else { return }
+        var searchList = UserDefaultsManager.shared.searchList ?? [] // nil이면 빈 배열 사용
         searchList.removeAll { $0 == text }                       // 최근 검색어 목록에 해당 검색어와 같은 게 있는지 확인, 있다면 제거
         searchList.insert(text, at: 0)                            // 이후 해당 검색어를 최근 검색어 목록 첫번째 항목에 추가
         if searchList.count > 7 {                                 // 최근 검색어 목록의 총 항목 수가 7개를 넘으면 가장 오래된 항목 제거

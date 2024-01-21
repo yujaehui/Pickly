@@ -13,6 +13,7 @@ enum SettingType: Int, CaseIterable {
 }
 
 enum SettingOption: String, CaseIterable {
+    case like = "좋아요한 상품"
     case notice = "공지사항"
     case faq = "자주 묻는 질문"
     case inquiry = "1:1 문의"
@@ -88,16 +89,28 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == SettingType.profile.rawValue {
+        switch SettingType(rawValue: indexPath.section) {
+        case .profile:
             let sb = UIStoryboard(name: StoryboardName.Profile.rawValue, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
             vc.accessType = .edit
             navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.section == SettingType.setting.rawValue && indexPath.row == 4 {
-            showAlert(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", buttonTitle: "확인") {
-                UserDefaultsManager.shared.clearAll()
-                UIApplication.shared.switchToOnboarding()     
+        case .setting:
+            guard let option = SettingOption(rawValue: SettingOption.allCases[indexPath.row].rawValue) else { return }
+            switch option {
+            case .like:
+                let sb = UIStoryboard(name: StoryboardName.Like.rawValue, bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: LikeViewController.identifier) as! LikeViewController
+                navigationController?.pushViewController(vc, animated: true)
+            case .reset:
+                showAlert(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", buttonTitle: "확인") {
+                    UserDefaultsManager.shared.clearAll()
+                    LikeItemRepository.shared.clearRealmData()
+                    UIApplication.shared.switchToOnboarding()
+                }
+            default: return
             }
+        case .none: break
         }
     }
 }

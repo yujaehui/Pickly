@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pickly/Search/SearchResultViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "sort"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF - 86ba7e4759c45479"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pickly.SearchResultViewController.heartButtonClicked(__C.UIButton) -&gt; ()"
-                  moduleName = "Pickly"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "808">
-               </Location>
-               <Location
-                  uuid = "DBC1FC37-5816-45DC-A847-E71D22287BBF - 86ba7e4759c45479"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pickly.SearchResultViewController.heartButtonClicked(__C.UIButton) -&gt; ()"
-                  moduleName = "Pickly"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/j/Desktop/Pickly/Pickly/Search/SearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "1496">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7C063747-1CC1-43F1-B995-7893F61D6271"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -62,8 +14,8 @@
             filePath = "Pickly/Setting/SettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -110,8 +62,8 @@
             filePath = "Pickly/Setting/SettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "updateProfile()"
             landmarkType = "7">
             <Locations>

@@ -15,7 +15,6 @@ class UserDefaultsManager {
         case profileImage
         case nickname
         case searchList
-        case productID
         case userState
     }
     
@@ -40,10 +39,6 @@ class UserDefaultsManager {
     var searchList: [String]? {
         get { ud.array(forKey: UDKey.searchList.rawValue) as? [String] }
         set { ud.setValue(newValue, forKey: UDKey.searchList.rawValue) }
-    }
-    var productID: [String]? {
-        get { ud.array(forKey: UDKey.productID.rawValue) as? [String] }
-        set { ud.setValue(newValue, forKey: UDKey.productID.rawValue) }
     }
     var userState: Bool {
         get { ud.bool(forKey: UDKey.userState.rawValue) }

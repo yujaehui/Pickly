@@ -12,6 +12,7 @@ enum StoryboardName: String {
     case Profile
     case Setting
     case Search
+    case Like
 }
 
 final class OnboardingViewController: BaseViewController {

@@ -60,6 +60,14 @@
 		095AFB142D5B34F00078FD15 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFB132D5B34F00078FD15 /* PaddingLabel.swift */; };
 		095AFB162D5B383A0078FD15 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFB152D5B383A0078FD15 /* BaseCollectionViewCell.swift */; };
 		095AFB182D5B38430078FD15 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AFB172D5B38430078FD15 /* BaseTableViewCell.swift */; };
+		09735FC82D7858BD00974D36 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 09735FC72D7858BD00974D36 /* Realm */; };
+		09735FCA2D7858BD00974D36 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 09735FC92D7858BD00974D36 /* RealmSwift */; };
+		09735FCD2D7858D000974D36 /* LikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09735FCC2D7858D000974D36 /* LikeItem.swift */; };
+		09735FCF2D78592C00974D36 /* LikeItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09735FCE2D78592C00974D36 /* LikeItemRepository.swift */; };
+		09735FE62D78629900974D36 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09735FE42D78629900974D36 /* LikeViewController.swift */; };
+		09735FE92D7862AA00974D36 /* Like.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09735FE82D7862AA00974D36 /* Like.storyboard */; };
+		09735FED2D78642A00974D36 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09735FEB2D78642A00974D36 /* LikeTableViewCell.swift */; };
+		09735FEE2D78642A00974D36 /* LikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09735FEC2D78642A00974D36 /* LikeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +124,12 @@
 		095AFB132D5B34F00078FD15 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		095AFB152D5B383A0078FD15 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		095AFB172D5B38430078FD15 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		09735FCC2D7858D000974D36 /* LikeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItem.swift; sourceTree = "<group>"; };
+		09735FCE2D78592C00974D36 /* LikeItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeItemRepository.swift; sourceTree = "<group>"; };
+		09735FE42D78629900974D36 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		09735FE82D7862AA00974D36 /* Like.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Like.storyboard; sourceTree = "<group>"; };
+		09735FEB2D78642A00974D36 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
+		09735FEC2D78642A00974D36 /* LikeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09735FCA2D7858BD00974D36 /* RealmSwift in Frameworks */,
+				09735FC82D7858BD00974D36 /* Realm in Frameworks */,
 				095AFAAD2D59E0860078FD15 /* Kingfisher in Frameworks */,
 				095AFAAA2D59E07D0078FD15 /* Alamofire in Frameworks */,
 			);
@@ -151,6 +167,8 @@
 		095AFA8E2D59DD500078FD15 /* Pickly */ = {
 			isa = PBXGroup;
 			children = (
+				09735FD02D785E0E00974D36 /* Like */,
+				09735FCB2D7858C200974D36 /* Realm */,
 				095AFABD2D59E4EE0078FD15 /* Onboarding */,
 				095AFAC72D59E8780078FD15 /* Profile */,
 				095AFAE12D59FC550078FD15 /* Setting */,
@@ -318,6 +336,34 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		09735FCB2D7858C200974D36 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				09735FCC2D7858D000974D36 /* LikeItem.swift */,
+				09735FCE2D78592C00974D36 /* LikeItemRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		09735FD02D785E0E00974D36 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				09735FEA2D78641F00974D36 /* Cell */,
+				09735FE82D7862AA00974D36 /* Like.storyboard */,
+				09735FE42D78629900974D36 /* LikeViewController.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		09735FEA2D78641F00974D36 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				09735FEC2D78642A00974D36 /* LikeTableViewCell.xib */,
+				09735FEB2D78642A00974D36 /* LikeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +383,8 @@
 			packageProductDependencies = (
 				095AFAA92D59E07D0078FD15 /* Alamofire */,
 				095AFAAC2D59E0860078FD15 /* Kingfisher */,
+				09735FC72D7858BD00974D36 /* Realm */,
+				09735FC92D7858BD00974D36 /* RealmSwift */,
 			);
 			productName = Pickly;
 			productReference = 095AFA8C2D59DD500078FD15 /* Pickly.app */;
@@ -369,6 +417,7 @@
 			packageReferences = (
 				095AFAA82D59E07D0078FD15 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				095AFAAB2D59E0860078FD15 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				09735FC62D7858BD00974D36 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 095AFA8D2D59DD500078FD15 /* Products */;
 			projectDirPath = "";
@@ -395,8 +444,10 @@
 				095AFAFD2D5B22290078FD15 /* Search.storyboard in Resources */,
 				095AFB032D5B22390078FD15 /* RecentSearchTableViewCell.xib in Resources */,
 				095AFA972D59DD500078FD15 /* Main.storyboard in Resources */,
+				09735FE92D7862AA00974D36 /* Like.storyboard in Resources */,
 				095AFAEB2D59FC790078FD15 /* SettingTableViewCell.xib in Resources */,
 				095AFB112D5B2D090078FD15 /* SortCollectionViewCell.xib in Resources */,
+				09735FEE2D78642A00974D36 /* LikeTableViewCell.xib in Resources */,
 				095AFAE32D59FC600078FD15 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,11 +468,13 @@
 				095AFA942D59DD500078FD15 /* ViewController.swift in Sources */,
 				095AFB052D5B22420078FD15 /* SearchResultViewController.swift in Sources */,
 				095AFAF62D5B21AC0078FD15 /* ShoppingAPI.swift in Sources */,
+				09735FCF2D78592C00974D36 /* LikeItemRepository.swift in Sources */,
 				095AFA902D59DD500078FD15 /* AppDelegate.swift in Sources */,
 				095AFAC52D59E6C80078FD15 /* BaseViewController.swift in Sources */,
 				095AFACD2D59E8920078FD15 /* ProfileImageViewController.swift in Sources */,
 				095AFB072D5B22470078FD15 /* SearchResultCollectionViewCell.swift in Sources */,
 				095AFAA72D59DF580078FD15 /* APIKey.swift in Sources */,
+				09735FED2D78642A00974D36 /* LikeTableViewCell.swift in Sources */,
 				095AFAF12D59FF100078FD15 /* UIApplication+Extension.swift in Sources */,
 				095AFB102D5B2D090078FD15 /* SortCollectionViewCell.swift in Sources */,
 				095AFAC32D59E6130078FD15 /* UIButton+Extension.swift in Sources */,
@@ -445,6 +498,8 @@
 				095AFAC12D59E5600078FD15 /* OnboardingViewController.swift in Sources */,
 				095AFABC2D59E3450078FD15 /* UIColor+Extension.swift in Sources */,
 				095AFAFF2D5B22310078FD15 /* SearchViewController.swift in Sources */,
+				09735FCD2D7858D000974D36 /* LikeItem.swift in Sources */,
+				09735FE62D78629900974D36 /* LikeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +748,14 @@
 				minimumVersion = 8.2.0;
 			};
 		};
+		09735FC62D7858BD00974D36 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.47.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -705,6 +768,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 095AFAAB2D59E0860078FD15 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		09735FC72D7858BD00974D36 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09735FC62D7858BD00974D36 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		09735FC92D7858BD00974D36 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09735FC62D7858BD00974D36 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

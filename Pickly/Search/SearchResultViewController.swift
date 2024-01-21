@@ -31,6 +31,8 @@ class SearchResultViewController: BaseViewController {
     @IBOutlet var resultCollectionView: UICollectionView!
     @IBOutlet var emptyLabel: UILabel!
     
+    private var likeItems: [LikeItem] = []
+    
     var searchText = ""
     var shoppingList = Shopping()
     var total = 0
@@ -59,18 +61,27 @@ class SearchResultViewController: BaseViewController {
         emptyLabel.textColor = ColorStyle.text
         emptyLabel.textAlignment = .center
         emptyLabel.font = FontStyle.primary
+        fetchLikeItems()
+    }
+    
+    private func fetchLikeItems() {
+        likeItems = LikeItemRepository.shared.fetchItem()
+        resultCollectionView.reloadData()
     }
     
     @objc func heartButtonClicked(_ sender: UIButton) {
-        guard var idList = UserDefaultsManager.shared.productID else { return }
-        if idList.contains(shoppingList.items[sender.tag].productID) {
-            idList.removeAll { $0 == shoppingList.items[sender.tag].productID }
+        let item = shoppingList.items[sender.tag]
+        
+        // 좋아요 목록에서 해당 아이템을 찾기
+        if let likeItem = likeItems.first(where: { $0.id == item.productID }) {
+            LikeItemRepository.shared.deleteItem(likeItem)
         } else {
-            idList.append(shoppingList.items[sender.tag].productID)
+            let newLikeItem = LikeItem(id: item.productID, brand: item.brand, title: item.title, price: item.lprice, link: item.link)
+            LikeItemRepository.shared.createItem(newLikeItem)
         }
-        UserDefaultsManager.shared.productID = idList
-        resultCollectionView.reloadData()
+        
         NotificationCenter.default.post(name: NSNotification.Name(Noti.heartButtonClicked.rawValue), object: nil)
+        fetchLikeItems()
     }
 }
 
@@ -127,7 +138,8 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
             let row = indexPath.row
             let item = shoppingList.items[row]
-            cell.configureCell(row, item: item)
+            let likeItems = likeItems
+            cell.configureCell(row, item: item, likeItems: likeItems)
             cell.heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
             return cell
         }

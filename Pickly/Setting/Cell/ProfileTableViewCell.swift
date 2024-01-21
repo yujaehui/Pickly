@@ -25,8 +25,7 @@ class ProfileTableViewCell: BaseTableViewCell {
     func configureCell() {
         profileImageView.image = UIImage(named: "profile\(UserDefaultsManager.shared.profileImage)")
         nicknameLabel.text = UserDefaultsManager.shared.nickname
-        if let count = UserDefaultsManager.shared.productID?.count {
-            likeStateLabel.attributedText = TextProcessingManager.shared.textColorChange("\(count)개의 상품을 좋아하고 있어요!", changeText: "\(count)개의 상품")
-        }
+        let likeItems = LikeItemRepository.shared.fetchItem()
+        likeStateLabel.attributedText = TextProcessingManager.shared.textColorChange("\(likeItems.count)개의 상품을 좋아하고 있어요!", changeText: "\(likeItems.count)개의 상품")
     }
 }
